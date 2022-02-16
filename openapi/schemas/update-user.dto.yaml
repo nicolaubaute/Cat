@@ -1,0 +1,5 @@
+allOf:
+  - $ref: ./user.base.yaml
+  - type: object
+    title: CreateUserDto
+    description: 'Update user request object'

@@ -1,0 +1,23 @@
+summary: Create a user
+operationId: AddUser
+description: Add a new user
+tags:
+  - Users
+requestBody:
+  content:
+    application/json:
+      schema:
+        $ref: ../../../schemas/create-user.dto.yaml
+responses:
+  201:
+    description: Returns the created user
+    content:
+      application/json:
+        schema:
+          $ref: ../../../schemas/user.response.yaml
+  422:
+    description: Error in some of the parameters sent
+    content:
+      application/json:
+        schema:
+          $ref: ../../../schemas/error/unprocessable-entity.error.yaml

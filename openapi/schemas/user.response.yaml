@@ -1,0 +1,10 @@
+allOf:
+  - $ref: ./user.base.yaml
+  - type: object
+    title: UserResponse
+    description: 'User response object'
+    properties:
+      id:
+        type: string
+        format: uuid
+        example: 'c52a1190-d3f9-4cb5-8572-d3f624c9d9a3'

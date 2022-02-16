@@ -1,0 +1,9 @@
+allOf:
+  - $ref: ./user.base.yaml
+  - type: object
+    title: CreateUserDto
+    description: 'Create user request object'
+    required:
+      - name
+      - age
+      - email

@@ -1,0 +1,23 @@
+summary: Delete a user
+operationId: DeleteUser
+description: Delete a user
+tags:
+  - Users
+parameters:
+  - in: path
+    name: id
+    description: The user's ID
+    required: true
+    schema:
+      type: string
+      format: uuid
+      example: 4d13575f-64a1-4fd4-b96b-19a6e354388a
+responses:
+  200:
+    description: User deleted
+    content:
+      application/json:
+        schema:
+          $ref: ../../../schemas/user.response.yaml
+  404:
+    description: User not found

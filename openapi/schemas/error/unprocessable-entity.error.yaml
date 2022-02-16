@@ -1,0 +1,28 @@
+title: Unprocessable Entity Error
+type: object
+description: Representation of an unprocessable entity error
+properties:
+  statusCode:
+    type: string
+    example: 422
+  error:
+    type: string
+    example: 'Unprocessable Entity'
+  message:
+    type: array
+    items:
+      type: object
+      properties:
+        property:
+          type: string
+          example: 'name'
+        children:
+          type: array
+          items:
+            type: string
+        constraints:
+          type: object
+          properties:
+            isEnum:
+              type: string
+              example: 'name must be a valid string'

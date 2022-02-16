@@ -1,0 +1,86 @@
+openapi: 3.0.3
+info:
+  title: User API
+  description: |
+    # User API
+
+    **Description**: Api responsible for managing users
+
+    ## Generic errors
+
+    Every request may return one of the following error formats:
+
+    ### Unprocessable Entity
+
+    Returned when the request schema is not valid.
+
+    ```json
+    {
+      "statusCode": 422,
+      "message": [
+        {
+            "value": "99999",
+            "property": "token",
+            "children": [],
+            "constraints": {
+                "isLength": "token must be longer than or equal to 6 characters"
+            }
+        }
+      ],
+      "error": "Unprocessable Entity"
+    }
+
+    ```
+
+    ### 4xx
+
+    Returned when a request fails, but it is not our fault
+
+    ```json
+    {
+      "statusCode": 401,
+      "message": "Access token missing or invalid",
+      "error": "Unprocessable Entity"
+    }
+
+    ### 5xx
+
+    Returned when a request fails and it is our fault
+
+    ```json
+    {
+      "statusCode": 500,
+      "message": "Unknown error, help me",
+      "error": "Internal Server Error"
+    }
+
+    ```
+
+  version: 0.1.0
+
+tags:
+  - name: Users
+    description: Users operations
+
+servers:
+  - url: http://localhost:{port}/
+    description: Development server
+    variables:
+      port:
+        default: "3000"
+        description: The port your development server is running.
+
+components:
+  schemas:
+    UserResponse:
+      $ref: ./schemas/user.response.yaml
+    UserUpdate:
+      $ref: ./schemas/update-user.dto.yaml
+    UserCreate:
+      $ref: ./schemas/create-user.dto.yaml
+
+paths:
+  /users:
+    $ref: ./paths/users/index.yaml
+  /users/{id}:
+    $ref: ./paths/users~1{id}/index.yaml
