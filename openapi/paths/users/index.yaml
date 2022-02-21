@@ -1,4 +1,0 @@
-get:
-  $ref: './resources/get.yaml'
-post:
-  $ref: './resources/post.yaml'
