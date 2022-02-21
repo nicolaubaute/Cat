@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   node:
-    hostname: nestjs-boilerplate-node
+    hostname: nicolau-node
     restart: unless-stopped
     build:
       context: .
@@ -13,7 +13,7 @@ services:
         - http_proxy
         - https_proxy
         - no_proxy
-    image: nestjs-boilerplate-node/node:latest
+    image: nicolau-node/node:latest
     ports:
       - "${NODE_HOST_PORT:-3000}:${PORT:-3000}"
       - "${NODE_HOST_DEBUG_PORT:-9229}:9229"
@@ -29,7 +29,7 @@ services:
     command: npm run start:debug
 
   database:
-    hostname: nestjs-boilerplate-database
+    hostname: nicolau-database
     image: postgres:13-alpine
     restart: unless-stopped
     networks:

@@ -1,0 +1,18 @@
+title: BreedDto
+type: object
+properties:
+  id:
+    type: string
+    example: abys
+  description:
+    type: string
+    example: The Abyssinian is easy to care for, and a joy to have in your home. They’re affectionate cats and love both people and other animals.
+  name:
+    type: string
+    example: Abyssinian
+  origin:
+    type: string
+    example: Egypt
+  temperament:
+    type: string
+    example: Active, Energetic, Independent, Intelligent, Gentle

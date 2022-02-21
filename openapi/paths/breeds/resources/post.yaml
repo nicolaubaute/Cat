@@ -1,0 +1,7 @@
+summary: Feed cat breeds from API
+operationId: feedCatBreedsFromAPI
+tags:
+  - Breeds
+responses:
+  201:
+    description: Cat breeds fed successfully

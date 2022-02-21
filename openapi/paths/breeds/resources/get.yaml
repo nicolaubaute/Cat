@@ -1,0 +1,26 @@
+summary: Get breeds
+operationId: findBreeds
+tags:
+  - Breeds
+parameters:
+  - in: query
+    name: origin
+    required: false
+    schema:
+      type: string
+      example: Egypt
+  - in: query
+    name: temperament
+    required: false
+    schema:
+      type: string
+      example: Active, Energetic, Independent, Intelligent, Gentle
+responses:
+  200:
+    description: Breeds
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: ../../../schemas/breed.dto.yaml

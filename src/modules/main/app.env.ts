@@ -3,6 +3,8 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 const env = {
+  APM_SECRET_TOKEN: process.env.APM_SECRET_TOKEN,
+  APM_SECRET_URL: process.env.APM_SECRET_URL,
   CATS_URL: process.env.CATS_URL,
   DB_HOST: process.env.DB_HOST,
   DB_PORT: parseInt(process.env.DB_PORT || '5432', 10),

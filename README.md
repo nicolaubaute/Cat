@@ -70,29 +70,6 @@ These commands accept the same options as knex commands, for example:
 
 It is important to not mix typescript and javascript commands. Always use typescript for development to avoid corrupt directory errors and so you can seed an run migrations in your tests.
 
-## Running tests
-
-If your tests use the database you have to start it before running them.
-Just run the commands bellow (you can pass --service-ports if you want to attach a debugger)
-
-```bash
-docker-compose run --rm node npm run test # Run tests normally
-# You can run only required test files by pattern using the -t flag. Ex.: docker-compose run --rm node npm run test -t user-input.schema
-
-docker-compose run --rm node npm run test:watch # Run tests in watch mode
-
-docker-compose run --rm node npm run test:debug # Run tests in debug mode
-
-docker-compose run --rm node npm run test:cov # Run tests with coverage report
-```
-
-Coverage reports are displayed on terminal, as a json file in `coverage/coverage-final.json` and as html.
-To open html coverage run:
-
-```bash
-firefox coverage/lcov-report/index.html
-```
-
 ## Running eslint
 
 The command bellow will autofix every eslint/prettier problem in src files
@@ -107,15 +84,6 @@ The project relies on commitlint to standardize its commit messages
 
 To check if your commit follows the project rules, run `npx husky install` before commiting
 
-## Integration tests (e2e)
-
-Integration tests are placed in the integration-tests directory outside the src folder.
-To make integration tests easier, calls to thirdparty services should always be on their
-own application layer so that they can easily be mocked with sinon.
-
-We usually put thirdparty calls in `.integration` files. For example: `bacen.integration.ts`.
-Then in your integration test you just use `sinon.createStubInstance(BacenIntegration)`.
-
 ## Openapi
 
 Openapi docs are available at the openapi folder. You can see the docs by starting the containers using:
@@ -124,7 +92,7 @@ Openapi docs are available at the openapi folder. You can see the docs by starti
 docker-compose -f docker-compose.swagger.yml up
 ```
 
-After that go to `localhost:8081/swagger` and type `/swagger/api.yaml` in the explore input to see your docs. Changes to the docs are made in real-time.
+After that go to `http://localhost:8081/swagger` and type `/swagger/api.yaml` in the explore input to see your docs. Changes to the docs are made in real-time.
 
 ### Validate docs
 

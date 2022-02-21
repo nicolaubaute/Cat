@@ -1,0 +1,18 @@
+summary: Get breed
+operationId: findOne
+tags:
+  - Breeds
+parameters:
+  - in: path
+    name: name
+    required: true
+    schema:
+      type: string
+      example: abys
+responses:
+  200:
+    description: The breed
+    content:
+      application/json:
+        schema:
+          $ref: ../../../schemas/breed.dto.yaml

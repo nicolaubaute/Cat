@@ -4,18 +4,16 @@ import {
   ValidationPipe,
 } from '@nestjs/common';
 import { APP_INTERCEPTOR, APP_PIPE } from '@nestjs/core';
-import { WinstonModule } from 'nest-winston';
 import { KNEX_TOKEN } from '../../constants';
 import knexConfig from '../../database/knexfile';
-import { CatsModule } from '../cats/cats.module';
+import { BreedsModule } from '../breeds/breeds.module';
 import { HealthModule } from '../health/health.module';
 import { KnexModule } from '../knex/knex.module';
 
 @Module({
   imports: [
-    WinstonModule.forRoot({}),
     KnexModule.forRoot(KNEX_TOKEN, knexConfig),
-    CatsModule,
+    BreedsModule,
     HealthModule,
   ],
   providers: [
